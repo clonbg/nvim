@@ -1,11 +1,9 @@
-" tabnine
 set number
 set mouse=a
 syntax enable
-
 set showcmd
 set showmatch
-set relativenumber
+" set relativenumber
 
 call plug#begin('~/.vim/plugged')
 
@@ -231,3 +229,7 @@ vnoremap <C-p> "+P
 " cs'" cambia las comillas simples por dobles
 " ds" elimina comillas dobles
 " ys" añade comillas "dobles"
+
+" Eliminar línea dd
+" varias lineas 5dd
+" lineas de 3 a 5 :3,5d
