@@ -1,6 +1,4 @@
-" vin-sorround Atajos
-" <Del>https://github.com/nvim-tree/nvim-tree.lua
-" https://github.com/akinsho/toggleterm.nvim
+" tabnine
 set number
 set mouse=a
 syntax enable
@@ -43,6 +41,20 @@ Plug 'windwp/nvim-autopairs'
 
 " Envolver
 Plug 'tpope/vim-surround'
+
+" nvim-tree
+Plug 'nvim-tree/nvim-web-devicons'
+Plug 'nvim-tree/nvim-tree.lua'
+
+" toogleTerm
+Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
+
+" barra de funcion
+Plug 'lewis6991/gitsigns.nvim'
+Plug 'feline-nvim/feline.nvim'
+
+" pestañas
+Plug 'romgrk/barbar.nvim'
 
 call plug#end()
 
@@ -172,6 +184,20 @@ lua <<EOF
     filetypes = { 'lua' },
   }
   require("nvim-autopairs").setup {}
+  -- examples for your init.lua
+
+  -- disable netrw at the very start of your init.lua (strongly advised)
+  vim.g.loaded_netrw = 1
+  vim.g.loaded_netrwPlugin = 1
+
+  -- set termguicolors to enable highlight groups
+  vim.opt.termguicolors = true
+
+  -- empty setup using defaults
+  require("nvim-tree").setup()
+  require("toggleterm").setup{}
+  require('gitsigns').setup() 
+  require('feline').setup()
   
 EOF
 
@@ -180,14 +206,19 @@ EOF
 noremap <C-s> :w<CR>
 
 
-" Usar <líder> + y para copiar al portapapeles
+" Copiar al portapapeles
 vnoremap <C-c> "+y
 nnoremap <C-c> "+y
 
-" Usar <líder> + d para cortar al portapapeles
+" Cortar al portapapeles
 vnoremap <C-x> "+d
 nnoremap <C-x> "+d
 
-" Usar <líder> + p para pegar desde el portapapeles
+" Pegar desde el portapapeles
 nnoremap <C-p> "+P
 vnoremap <C-p> "+P
+
+" comandos envolver codigo (vim-surround)
+" cs'" cambia las comillas simples por dobles
+" ds" elimina comillas dobles
+" ys" añade comillas "dobles"
