@@ -25,17 +25,16 @@ Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'rafamadriz/friendly-snippets'
 
+" For ultisnips users.
+Plug 'SirVer/ultisnips'
+Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+
 call plug#end()
 
 " gruvbox config
 set background=dark
 let g:gruvbox_material_background='medium'
 colorscheme gruvbox-material
-
-" LSP config
-lua <<EOF
--- require'lspconfig'.pyright.setup{}
-EOF
 
 " nvim-cmp
 set completeopt=menu,menuone,noselect
@@ -108,5 +107,10 @@ lua <<EOF
   -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
   require('lspconfig')['pyright'].setup {
     capabilities = capabilities
+  }
+  require 'lspconfig'.bashls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { 'zsh', 'bash', 'sh' },
   }
 EOF
