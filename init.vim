@@ -1,3 +1,6 @@
+" vin-sorround Atajos
+" <Del>https://github.com/nvim-tree/nvim-tree.lua
+" https://github.com/akinsho/toggleterm.nvim
 set number
 set mouse=a
 syntax enable
@@ -31,6 +34,15 @@ Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 
 " formatting
 Plug 'sbdchd/neoformat'
+
+" indent
+Plug 'lukas-reineke/indent-blankline.nvim'
+
+" Emparejar comillas, parentesis, etc...
+Plug 'windwp/nvim-autopairs'
+
+" Envolver
+Plug 'tpope/vim-surround'
 
 call plug#end()
 
@@ -159,6 +171,7 @@ lua <<EOF
     },
     filetypes = { 'lua' },
   }
+  require("nvim-autopairs").setup {}
   
 EOF
 
