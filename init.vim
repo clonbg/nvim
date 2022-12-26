@@ -29,6 +29,9 @@ Plug 'rafamadriz/friendly-snippets'
 Plug 'SirVer/ultisnips'
 Plug 'quangnguyen30192/cmp-nvim-ultisnips'
 
+" formatting
+Plug 'sbdchd/neoformat'
+
 call plug#end()
 
 " gruvbox config
@@ -118,5 +121,6 @@ lua <<EOF
   on_attach = on_attach,
   capabilities = capabilities,
   filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'},
-}
+  }
+  
 EOF
