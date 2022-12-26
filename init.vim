@@ -2,6 +2,7 @@
 set number
 set mouse=a
 syntax enable
+
 set showcmd
 set showmatch
 set relativenumber
@@ -55,6 +56,9 @@ Plug 'feline-nvim/feline.nvim'
 
 " pestañas
 Plug 'romgrk/barbar.nvim'
+
+" tabnine
+Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
 
 call plug#end()
 
@@ -198,6 +202,11 @@ lua <<EOF
   require("toggleterm").setup{}
   require('gitsigns').setup() 
   require('feline').setup()
+  require'cmp'.setup {
+    sources = {
+ 	{ name = 'cmp_tabnine' },
+    },
+  }
   
 EOF
 
