@@ -122,5 +122,59 @@ lua <<EOF
   capabilities = capabilities,
   filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'},
   }
+  USER = vim.fn.expand('$USER')
+
+  local sumneko_root_path = ""
+  local sumneko_binary = ""
+
+  if vim.fn.has("mac") == 1 then
+    sumneko_root_path = "/Users/" .. USER .. "/.config/nvim/lua-language-server"
+    sumneko_binary = "/Users/" .. USER .. "/.config/nvim/lua-language-server/bin/macOS/lua-language-server"
+  elseif vim.fn.has("unix") == 1 then
+    sumneko_root_path = "/usr/bin/lua-language-server"
+    sumneko_binary = "/usr/bin/lua-language-server"
+  else
+    print("Unsupported system for sumneko")
+  end
+
+  require'lspconfig'.sumneko_lua.setup {
+    cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"},
+    settings = {
+        Lua = {
+            runtime = {
+                -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+                version = 'LuaJIT',
+                -- Setup your lua path
+                path = vim.split(package.path, ';')
+            },
+            diagnostics = {
+                -- Get the language server to recognize the `vim` global
+                globals = {'vim'}
+            },
+            workspace = {
+                -- Make the server aware of Neovim runtime files
+                library = {[vim.fn.expand('$VIMRUNTIME/lua')] = true, [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true}
+            }
+        }
+    },
+    filetypes = { 'lua' },
+  }
   
 EOF
+
+
+" Atajos de teclado
+noremap <C-s> :w<CR>
+
+
+" Usar <líder> + y para copiar al portapapeles
+vnoremap <C-c> "+y
+nnoremap <C-c> "+y
+
+" Usar <líder> + d para cortar al portapapeles
+vnoremap <C-x> "+d
+nnoremap <C-x> "+d
+
+" Usar <líder> + p para pegar desde el portapapeles
+nnoremap <C-p> "+P
+vnoremap <C-p> "+P
