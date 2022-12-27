@@ -5,6 +5,11 @@ set showcmd
 set showmatch
 " set relativenumber
 
+" Indentación 2 espacios
+set shiftwidth=2
+set expandtab
+set autoindent
+
 call plug#begin('~/.vim/plugged')
 
 " Theme
@@ -58,6 +63,9 @@ Plug 'romgrk/barbar.nvim'
 " tabnine
 Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
 
+" Emmet
+Plug 'mattn/emmet-vim'
+
 call plug#end()
 
 " gruvbox config
@@ -67,6 +75,17 @@ colorscheme gruvbox-material
 
 " nvim-cmp
 set completeopt=menu,menuone,noselect
+
+" emmet
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
+let g:user_emmet_leader_key='<c-E>'
+
+" neoformat on save 
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END
 
 lua <<EOF
   -- Set up nvim-cmp.
