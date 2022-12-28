@@ -231,33 +231,42 @@ lua <<EOF
   
 EOF
 
-
-
+" Atajos de teclado
+nnoremap <c-s> :w<CR> " normal mode: save
+inoremap <c-s> <Esc>:w<CR> " insert mode: escape to normal and save
+vnoremap <c-s> <Esc>:w<CR> " visual mode: escape to normal and save
 
 " Copiar al portapapeles
 vnoremap <C-c> "+y
 nnoremap <C-c> "+y
+inoremap <C-c> "+y
 
 " Cortar al portapapeles
 vnoremap <C-x> "+d
 nnoremap <C-x> "+d
+inoremap <C-x> "+y
 
 " Pegar desde el portapapeles
 nnoremap <C-p> "+P
 vnoremap <C-p> "+P
+inoremap <C-p> "+y
 
-" comandos envolver codigo (vim-surround)
-" cs'" cambia las comillas simples por dobles
-" ds" elimina comillas dobles
-" ys" añade comillas "dobles"
+" Tree
+nnoremap <c-a> :NvimTreeToggle<CR>
+inoremap <c-a> <Esc>:NvimTreeToggle<CR>
+vnoremap <c-a> <Esc>:NvimTreeToggle<CR>
+
+" Terminal
+nnoremap <c-t> :ToggleTerm<CR>
+inoremap <c-t> <Esc>:ToggleTerm<CR>
+vnoremap <c-t> <Esc>:ToggleTerm<CR>
 
 " Eliminar línea dd
 " varias lineas 5dd
 " lineas de 3 a 5 :3,5d
 
 " undo
-"
-" Atajos de teclado
-noremap <C-S> :update<CR>
-vnoremap <C-S> <C-C>:update<CR>
-inoremap <C-S> <C-O>:update<CR>
+nnoremap <c-u> :u<CR>
+inoremap <c-t> <Esc>:u<CR>
+vnoremap <c-t> <Esc>:u<CR>"
+

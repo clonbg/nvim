@@ -1,2 +1,17 @@
 - Save & autoformat - <Ctrl-s>
-
+- Envolver:
+  - ys → añade los símbolos deseados en la unidad de texto (palabra, dos palabras, línea, etc) especificada.
+    - ys2w" -> añade comillas en las dos palabras a partir del cursor.
+    - yss) -> añade () en toda la linea
+  - cs(' → cambia los paréntesis por comillas simples.
+  - ds' → elimina las comillas simples.
+- Copiar <Ctrl-c>
+- Cortar <Ctrl-x>
+- Pegar <Ctrl-p>
+- Árbol <Ctrl-a>
+- Terminal <Ctrl-t>
+- Eliminar líneas:
+  - 5dd -> elimina 5 líneas a partir de donde está el cursor
+  - 3,5d -> elimina líneas de la 3 a la 5
+- Deshacer <Ctrl-u>
+- Comentar y descomentar seleccionar y gc
