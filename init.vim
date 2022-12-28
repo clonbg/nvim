@@ -66,6 +66,9 @@ Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
 " Emmet
 Plug 'mattn/emmet-vim'
 
+" Comentarios
+Plug 'terrortylor/nvim-comment'
+
 call plug#end()
 
 " gruvbox config
@@ -224,12 +227,11 @@ lua <<EOF
  	{ name = 'cmp_tabnine' },
     },
   }
+  require('nvim_comment').setup()
   
 EOF
 
 
-" Atajos de teclado
-noremap <C-s> :w<CR>
 
 
 " Copiar al portapapeles
@@ -252,3 +254,10 @@ vnoremap <C-p> "+P
 " Eliminar línea dd
 " varias lineas 5dd
 " lineas de 3 a 5 :3,5d
+
+" undo
+"
+" Atajos de teclado
+noremap <C-S> :update<CR>
+vnoremap <C-S> <C-C>:update<CR>
+inoremap <C-S> <C-O>:update<CR>
